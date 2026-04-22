@@ -66,6 +66,113 @@ app.get("/genero", (req, res) => {
   res.render("genero");
 });
 
+app.get("/playlist", (req, res) => {
+  res.render("playlist");
+});
+
+app.get("/cadastroplaylist", (req, res) => {
+  res.render("cadastroplaylist")
+})
+
+app.post("/cadastroplaylist", (req, res) => {
+  const nomeplay = req.body.nomeplay
+  const musica1 = req.body.musica1
+  const musica2 = req.body.musica2
+  const musica3 = req.body.musica3
+
+  res.render("cadastroplaylist", {nomeplay, musica1, musica2, musica3});
+});
+
+app.get("/musica/:detalhemus", (req, res) => {
+  let nomemus = ""
+  let nomartista = ""
+  let genartista = ""
+  let anoLancamento = ""
+  let duracao = "" 
+
+  if (req.params.detalhemus == 'pretty'){
+    nomemus = "pretty isn't pretty"
+    nomartista = "Olivia Rodrigo"
+    genartista = "Pop-rock"
+    anoLancamento = "2023"
+    duracao = "3:20"
+  }
+  else if (req.params.detalhemus == 'man'){
+    nomemus = "my man on willpower"
+    nomartista = "Sabrina Carpenter"
+    genartista = "Pop"
+    anoLancamento = "2025"
+    duracao = "3:18"
+  }
+  else if (req.params.detalhemus == 'late'){
+    nomemus = "too litle, too late"
+    nomartista = "Laufey"
+    genartista = "Jazz"
+    anoLancamento = "2025"
+    duracao = "3:53"
+  }
+
+  else if (req.params.detalhemus == 'agnus'){
+    nomemus = "agnus dei"
+    nomartista = "The Last Dinner Party"
+    genartista = "Rock"
+    anoLancamento = "2025"
+    duracao = "5:34"
+  }
+
+  else if (req.params.detalhemus == 'ironic'){
+    nomemus = "ironic"
+    nomartista = "Alanis Morisette"
+    genartista = "Rock"
+    anoLancamento = "1995"
+    duracao = "4:07"
+  }
+  
+  else if (req.params.detalhemus == 'parachute'){
+    nomemus = "parachute"
+    nomartista = "Hayley Williams"
+    genartista = "Pop-Rock"
+    anoLancamento = "2025"
+    duracao = "3:39"
+  }
+
+  else if (req.params.detalhemus == 'subway'){
+    nomemus = "the subway"
+    nomartista = "Chappell Roan"
+    genartista = "Pop"
+    anoLancamento = "2025"
+    duracao = "4:32"
+  }
+    res.render("detalhemus", {nomemus, nomartista, genartista, anoLancamento, duracao})
+});
+
+app.get("/playlist/:detalheplaylist", (req, res) => {
+  let nomeplay = ""
+  let musica1 = ""
+  let musica2 = ""
+  let musica3 = ""
+
+  if (req.params.detalheplaylist == 'rage'){
+    nomeplay = "rage"
+    musica1 = "pretty isn't pretty"
+    musica2 = "ironic"
+    musica3 = "too little, too late"
+  }
+  else if (req.params.detalheplaylist == 'yelling'){
+    nomeplay = "yelling"
+    musica1 = "parachute"
+    musica2 = "too little, too late"
+    musica3 = "my man on willpower"
+  }
+  else if (req.params.detalheplaylist == 'crying'){
+    nomeplay = "crying"
+    musica1 = "the subway"
+    musica2 = "too little, too late"
+    musica3 = "pretty isn't pretty"
+  }
+  res.render("detalheplaylist", {nomeplay, musica1, musica2, musica3})
+});
+
 app.get("/artista/:detalhe", (req, res) => {
   let artnome = ""
   let artpais = ""

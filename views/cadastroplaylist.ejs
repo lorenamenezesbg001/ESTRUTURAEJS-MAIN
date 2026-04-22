@@ -1,0 +1,46 @@
+<%- include('cabecalho.ejs')%>
+    <main class="container">
+        <a href="/musica" class="back-link">← Voltar para lista de músicas</a>
+
+        <div class="form-container">
+            <h2>Cadastrar Nova playlist</h2>
+
+            <form method="post">
+                <div class="form-group">
+                    <label for="nome">Nome da playlist *</label>
+                    <input type="text" id="nomeplay" name="nomeplay">
+                </div>
+
+                <div class="form-group">
+                    <label for="pais">Música 1 *</label>
+                    <select name="musica1" id="musica1">
+                        <option value="pretty isn't pretty">pretty isn't pretty</option>
+                        <option value="ironic">ironic</option>
+                        <option value="too little, too late">too little, too late</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pais">Música 2 *</label>
+                    <select name="musica2" id="musica2">
+                        <option value="parachute">parachute</option>
+                        <option value="agnus dei">agnus dei</option>
+                        <option value="my man on willpower">my man on willpower</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pais">Música 3 *</label>
+                    <select name="musica3" id="musica3">
+                        <option value="too little, too late">too little, too late</option>
+                        <option value="the subway">the subway</option>
+                        <option value="parachute">parachute</option>
+                    </select>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <a href="palylist.ejs" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include('rodape.ejs')%>

@@ -1,0 +1,47 @@
+<%- include('cabecalho.ejs')%>
+
+    <main class="container">
+        <div class="page-header">
+            <h2>Playlist</h2>
+            <a href="/cadastroplaylist" class="btn btn-success">+ Nova playlist</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Música 1</th>
+                        <th>Música 2</th>
+                        <th>Música 3</th>
+                        <th>Mais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>rage</td>
+                        <td>pretty isn't pretty</td>
+                        <td>agnus dei</td>
+                        <td>ironic</td>
+                        <td><a href="/playlist/rage" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>yelling</td>
+                        <td>parachute</td>
+                        <td>too litle, too late</td>
+                        <td>my man on willpower</td>
+                        <td><a href="/playlist/yelling" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>crying</td>
+                        <td>the subway</td>
+                        <td>too little, too late</td>
+                        <td>pretty isn't pretty</td>
+                        <td><a href="/playlist/crying" class="link">Ver Detalhes</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <%- include('rodape.ejs')%>
