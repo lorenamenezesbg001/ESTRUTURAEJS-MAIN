@@ -1,33 +1,28 @@
 <%- include('cabecalho.ejs')%>
     <main class="container">
-        <a href="/lista" class="back-link">← Voltar para lista</a>
+        <a href="/artista" class="back-link">← Voltar para lista de artistas</a>
 
         <div class="detail-box">
             <h2>Detalhes do Artista</h2>
 
             <div class="detail-item">
                 <label>Nome:</label>
-                <p>Olivia Rodrigo</p>
+                <p>
+                    <%=artnome%>
+                </p>
             </div>
-
             <div class="detail-item">
                 <label>País:</label>
-                <p>Estados Unidos</p>
+                <p>
+                    <%=artpais%>
+                </p>
             </div>
-
             <div class="detail-item">
                 <label>Ano de Início:</label>
-                <p>2020</p>
+                <p>
+                    <%=artano%>
+                </p>
             </div>
-        </div>
-
-        <div class="detail-box">
-            <h3>Músicas deste Artista</h3>
-            <ul class="musicas-list">
-                <li><a href="" class="link">deja vu (2021)</a></li>
-                <li><a href="" class="link">pretty isn't pretty (2023)</a></li>
-                <li><a href="" class="link">drop dead (2026)</a></li>
-            </ul>
         </div>
     </main>
     <%- include('rodape.ejs')%>

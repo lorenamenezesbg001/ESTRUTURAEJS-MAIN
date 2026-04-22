@@ -1,0 +1,83 @@
+<%- include('cabecalho.ejs')%>
+
+    <main class="container">
+        <div class="page-header">
+            <h2>Lista de Músicas</h2>
+            <a href="/cadastromusica" class="btn btn-success">+ Nova Música</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Artista</th>
+                        <th>Gênero</th>
+                        <th>Ano</th>
+                        <th>Duração</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>pretty isn't pretty</td>
+                        <td>Olivia Rodrigo</td>
+                        <td>Pop-rock</td>
+                        <td>2023</td>
+                        <td>3:20</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>my man on willpower</td>
+                        <td>Sabrina Carpenter</td>
+                        <td>Pop</td>
+                        <td>2025</td>
+                        <td>3:18</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>too little, too late</td>
+                        <td>Laufey</td>
+                        <td>Jazz</td>
+                        <td>2025</td>
+                        <td>3:53</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>agnus dei</td>
+                        <td>The Last Dinner Party</td>
+                        <td>Rock</td>
+                        <td>2025</td>
+                        <td>5:34</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>ironic</td>
+                        <td>Alanis Morisette</td>
+                        <td>Rock</td>
+                        <td>1995</td>
+                        <td>4:07</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>parachute</td>
+                        <td>hayley williams</td>
+                        <td>Pop-Rock</td>
+                        <td>2025</td>
+                        <td>3:39</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                    <tr>
+                        <td>the subway</td>
+                        <td>chappell roan</td>
+                        <td>Pop</td>
+                        <td>2025</td>
+                        <td>4:32</td>
+                        <td><a href="/detalhe/musica" class="link">Ver Detalhes</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <%- include('rodape.ejs')%>
