@@ -144,12 +144,12 @@ footer {
 }
 
 .btn-primary {
-    background-color: #2563eb;
+    background-color: #c20bd3;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #c20bd3;
 }
 
 .btn-success {

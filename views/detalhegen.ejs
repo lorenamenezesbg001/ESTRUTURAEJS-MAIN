@@ -17,6 +17,18 @@
                     <%=descricao%>
                 </p>
             </div>
+            <div class="detail-box">
+            <h3>Mais músicas deste gênero</h3>
+           <div class="lista-musicas">
+    <% if (mais.length > 0) { %>
+        <% mais.forEach(m => { %>
+            <a href="<%= m.link %>" class="link"><%= m.nome %></a><br>
+        <% }) %>
+    <% } else { %>
+        <p>Nenhuma música cadastrada.</p>
+    <% } %>
+</div>
         </div>
+
     </main>
     <%- include('rodape.ejs')%>

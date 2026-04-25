@@ -28,6 +28,67 @@ app.post("/cadastro", (req, res) => {
   res.render("cadastrook", {name, country, year});
 });
 
+app.get("/detalhe", (req, res) => {
+  res.render("detalhe");
+});
+
+app.get("/artista", (req, res) => {
+  res.render("artista");
+});
+
+app.get("/artista/:detalhe", (req, res) => {
+  let artnome = ""
+  let artpais = ""
+  let artano = ""
+
+  if(req.params.detalhe == 'oliviarodrigo'){
+    artnome = "Olivia Rodrigo"
+    artpais = "Estados Unidos"
+    artano = "2021"
+  }
+
+  if(req.params.detalhe == 'sabrinacarpenter'){
+    artnome = "Sabrina Carpenter"
+    artpais = "Estados Unidos"
+    artano = "2016"
+  }
+
+  if(req.params.detalhe == 'laufey'){
+    artnome = "Laufey"
+    artpais = "Brasil"
+    artano = "2021"
+  }
+
+  if(req.params.detalhe == 'thelastdinnerparty'){
+    artnome = "The Last Dinner Party"
+    artpais = "Londres"
+    artano = "2021"
+  }
+
+  if(req.params.detalhe == 'alanismorisette'){
+    artnome = "Alanis Morisette"
+    artpais = "Canadá"
+    artano = "1995"
+  }
+
+  if(req.params.detalhe == 'hayleywilliams'){
+    artnome = "Hayley Williams"
+    artpais = "Estados Unidos"
+    artano = "2004"
+  }
+  if(req.params.detalhe == 'chappellroan'){
+    artnome = "Chappell Roan"
+    artpais = "Estados Unidos"
+    artano = "2023"
+  }
+
+  res.render("detalhe", {artnome, artpais, artano})
+});
+
+app.get("/genero", (req, res) => {
+  res.render("genero");
+});
+
 app.get("/cadastrogenero", (req, res) => {
   res.render("cadastrogenero");
 });
@@ -35,8 +96,70 @@ app.get("/cadastrogenero", (req, res) => {
 app.post("/cadastrogenero", (req, res) => {
   const nomegen = req.body.nomegen
   const descricao = req.body.descricao
-  res.render("detalhegen", {nomegen, descricao});
+  const mais = req.body.mais
+  res.render("cadastrookgenero", {nomegen, descricao, mais});
 }); 
+
+app.get("/genero/:detalhegen", (req, res) => {
+  let nomegen = ""
+  let descricao = ""
+  let mais = ""
+
+if (req.params.detalhegen == 'pretty'){
+    nomegen = "Pop-Rock"
+    descricao = "Mistura de batidas pop com a guitarra do rock"
+    mais = [
+    { nome: "pretty isn't pretty (2023)", link: "#" },
+    { nome: "ironic (1995)", link: "#" }]
+  }
+if (req.params.detalhegen == 'man'){
+    nomegen = "Pop"
+    descricao = "Música dançante"
+    mais = [
+    { nome: "my man on willpower (2025)", link: "#" },
+    { nome: "the subway (2025)", link: "#" }]
+  }
+if (req.params.detalhegen == 'late'){
+    nomegen = "Jazz"
+    descricao = "Fim de tarde confortável"
+    mais = [
+    { nome: "too little, too late (2025)", link: "#" },
+]
+  }
+if (req.params.detalhegen == 'agnus'){
+    nomegen = "Rock"
+    descricao = "Muitas guitarras elétricas"
+    mais = [
+    { nome: "agnus dei (2025)", link: "#" },
+    { nome: "parachute (2025)", link: "#" }]
+  }
+if (req.params.detalhegen == 'ironic'){
+    nomegen = " Pop-Rock"
+    descricao = "Feminine rage!"
+    mais = [
+    { nome: "pretty isn't pretty (2023)", link: "#" },
+    { nome: "ironic (1995)", link: "#" }]
+  }
+if (req.params.detalhegen == 'parachute'){
+    nomegen = "Rock"
+    descricao = "Muitas guitarras elétricas e gritos"
+    mais = [
+    { nome: "agnus dei (2025)", link: "#" },
+    { nome: "parachute (2025)", link: "#" }]
+  }
+if (req.params.detalhegen == 'subway'){
+    nomegen = "Pop"
+    descricao = "Para chorar!"
+    mais = [
+    { nome: "my man on willpower (2025)", link: "#" },
+    { nome: "the subway (2025)", link: "#" }]
+  }
+res.render("detalhegen", {nomegen, descricao, mais}) 
+});
+
+app.get("/musica", (req, res) => {
+  res.render("musica");
+});
 
 app.get("/cadastromusica", (req, res) => {
   res.render("cadastromusica");
@@ -48,40 +171,8 @@ app.post("/cadastromusica", (req, res) => {
   const genartista = req.body.genartista
   const anoLancamento = req.body.anoLancamento
   const duracao = req.body.duracao
-  res.render("detalhemus", {nomemus, nomartista, genartista, anoLancamento, duracao});
+  res.render("cadastrookmusica", {nomemus, nomartista, genartista, anoLancamento, duracao});
 }); 
-
-app.get("/detalhe", (req, res) => {
-  res.render("detalhe");
-});
-app.get("/artista", (req, res) => {
-  res.render("artista");
-});
-
-app.get("/musica", (req, res) => {
-  res.render("musica");
-});
-
-app.get("/genero", (req, res) => {
-  res.render("genero");
-});
-
-app.get("/playlist", (req, res) => {
-  res.render("playlist");
-});
-
-app.get("/cadastroplaylist", (req, res) => {
-  res.render("cadastroplaylist")
-})
-
-app.post("/cadastroplaylist", (req, res) => {
-  const nomeplay = req.body.nomeplay
-  const musica1 = req.body.musica1
-  const musica2 = req.body.musica2
-  const musica3 = req.body.musica3
-
-  res.render("cadastroplaylist", {nomeplay, musica1, musica2, musica3});
-});
 
 app.get("/musica/:detalhemus", (req, res) => {
   let nomemus = ""
@@ -146,6 +237,24 @@ app.get("/musica/:detalhemus", (req, res) => {
     res.render("detalhemus", {nomemus, nomartista, genartista, anoLancamento, duracao})
 });
 
+app.get("/playlist", (req, res) => {
+  res.render("playlist");
+});
+
+app.get("/cadastroplaylist", (req, res) => {
+  res.render("cadastroplaylist")
+})
+
+app.post("/cadastroplaylist", (req, res) => {
+  const nomeplay = req.body.nomeplay
+  const musica1 = req.body.musica1
+  const musica2 = req.body.musica2
+  const musica3 = req.body.musica3
+
+  res.render("cadastrookplaylist", {nomeplay, musica1, musica2, musica3});
+});
+
+
 app.get("/playlist/:detalheplaylist", (req, res) => {
   let nomeplay = ""
   let musica1 = ""
@@ -171,55 +280,6 @@ app.get("/playlist/:detalheplaylist", (req, res) => {
     musica3 = "pretty isn't pretty"
   }
   res.render("detalheplaylist", {nomeplay, musica1, musica2, musica3})
-});
-
-app.get("/artista/:detalhe", (req, res) => {
-  let artnome = ""
-  let artpais = ""
-  let artano = ""
-
-  if(req.params.detalhe == 'oliviarodrigo'){
-    artnome = "Olivia Rodrigo"
-    artpais = "Estados Unidos"
-    artano = "2021"
-  }
-
-  if(req.params.detalhe == 'sabrinacarpenter'){
-    artnome = "Sabrina Carpenter"
-    artpais = "Estados Unidos"
-    artano = "2016"
-  }
-
-  if(req.params.detalhe == 'laufey'){
-    artnome = "Laufey"
-    artpais = "Brasil"
-    artano = "2021"
-  }
-
-  if(req.params.detalhe == 'thelastdinnerparty'){
-    artnome = "The Last Dinner Party"
-    artpais = "Londres"
-    artano = "2021"
-  }
-
-  if(req.params.detalhe == 'alanismorisette'){
-    artnome = "Alanis Morisette"
-    artpais = "Canadá"
-    artano = "1995"
-  }
-
-  if(req.params.detalhe == 'hayleywilliams'){
-    artnome = "Hayley Williams"
-    artpais = "Estados Unidos"
-    artano = "2004"
-  }
-  if(req.params.detalhe == 'chappellroan'){
-    artnome = "Chappell Roan"
-    artpais = "Estados Unidos"
-    artano = "2023"
-  }
-
-  res.render("detalhe", {artnome, artpais, artano})
 });
 
 app.listen(PORT, ()=>{
