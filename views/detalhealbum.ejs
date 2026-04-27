@@ -1,0 +1,28 @@
+<%- include('cabecalho.ejs')%>
+    <main class="container">
+        <a href="/album" class="back-link">← Voltar para lista de álbuns</a>
+
+        <div class="detail-box">
+            <h2>Detalhes do álbum</h2>
+
+            <div class="detail-item">
+                <label>Nome do álbum:</label>
+                <p>
+                    <%=nomealb%>
+                </p>
+            </div>
+            <div class="detail-item">
+                <label>Artista:</label>
+                <p>
+                    <%=artalb%>
+                </p>
+            </div>
+            <div class="detail-item">
+                <label>Ano de Lançamento:</label>
+                <p>
+                    <%=anoLancamentoalb%>
+                </p>
+            </div>
+        </div>
+    </main>
+    <%- include('rodape.ejs')%>
