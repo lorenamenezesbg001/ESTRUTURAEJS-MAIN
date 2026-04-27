@@ -322,6 +322,12 @@ if (req.params.detalheplaylist == 'chilling'){
     musica2 = "sidelines"
     musica3 = "too little, too late"
   }
+if (req.params.detalheplaylist == 'loryjamie'){
+    nomeplay = "loryjamie"
+    musica1 = "sidelines"
+    musica2 = "parachute"
+    musica3 = "agnus dei"
+  }
   res.render("detalheplaylist", {nomeplay, musica1, musica2, musica3})
 });
 
@@ -340,7 +346,6 @@ app.post("/cadastroalbum", (req, res) => {
 
   res.render("cadastrookalbum", {nomealb, artalb, anoLancamentoalb});
 });
-
 
 app.get("/album/:detalhealbum", (req, res) => {
   let nomealb = ""
