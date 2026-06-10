@@ -1,5 +1,6 @@
 <%- include('../cabecalho.ejs')%>
 
+
     <main class="container">
         <div class="page-header">
             <h2>Lista de Gênero</h2>
@@ -12,20 +13,23 @@
                     <tr>
                         <th>Nome</th>
                         <th>Ações</th>
+                        <th>Mais Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%generos.forEach(genero => {%>
-                    <tr>
-                        <td><%=genero.nome%></td>
-                        <td><a href="genero-detalhes.html?id=1" 
-                        class="link">Ver Detalhes</a></td>
-                    </tr>
-                    <%})%>
-                    
+                    <%generos.forEach(genero=> {%>
+                        <tr>
+                            <td>
+                                <%=genero.nome%>
+                            </td>
+                            <td><a href="/genero/del/<%=genero.id%>" class="link">EXCLUIR</a></td>
+                            <td><a href="/genero/edt/<%=genero.id%>" class="link">EDITAR</a></td>
+                        </tr>
+                        <%})%>
+
                 </tbody>
             </table>
         </div>
     </main>
 
-<%- include('../rodape.ejs')%>
+    <%- include('../rodape.ejs')%>

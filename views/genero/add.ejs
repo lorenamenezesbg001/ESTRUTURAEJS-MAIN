@@ -1,19 +1,14 @@
 <%- include('../cabecalho.ejs')%>
-<main class="container">
-        <a href="/genero/lst" class="back-link">← Voltar para lista</a>
+    <main class="container">
+        <a href="/genero" class="back-link">← Voltar para lista</a>
 
         <div class="form-container">
             <h2>Cadastrar Novo Gênero</h2>
-            
-            <form method="post" >
+
+            <form method="post">
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input 
-                        type="text" 
-                        id="nome" 
-                        name="nome" 
-                        
-                    >
+                    <input type="text" id="nome" name="nome">
                 </div>
 
 
@@ -24,4 +19,4 @@
             </form>
         </div>
     </main>
-<%- include('../rodape.ejs')%>
+    <%- include('../rodape.ejs')%>

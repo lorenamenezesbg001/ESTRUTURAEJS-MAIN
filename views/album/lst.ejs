@@ -2,8 +2,8 @@
 
     <main class="container">
         <div class="page-header">
-            <h2>Lista de Artistas</h2>
-            <a href="/artista/add" class="btn btn-success">+ Novo Artista</a>
+            <h2>Lista de Álbuns</h2>
+            <a href="/album/add" class="btn btn-success">+ Novo Álbum</a>
         </div>
 
         <div class="table-container">
@@ -11,26 +11,26 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>País</th>
-                        <th>Ano Nascimento</th>
+                        <th>Ano de lançamento</th>
+                        <th>Gênero</th>
                         <th>Ações</th>
                         <th>Mais Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%artistas.forEach(artista=>{%>
+                    <%albuns.forEach(album=>{%>
                         <tr>
                             <td>
-                                <%=artista.nome%>
+                                <%=album.nome%>
                             </td>
                             <td>
-                                <%=artista.pais%>
+                                <%=album.ano%>
                             </td>
                             <td>
-                                <%=artista.ano%>
+                                <%=album.genero%>
                             </td>
-                            <td><a href="/artista/del/<%=artista.id%>" class="link">EXCLUIR</a></td>
-                            <td><a href="/artista/edt/<%=artista.id%>" class="link">EDITAR</a></td>
+                            <td><a href="/album/del/<%=album.id%>" class="link">EXCLUIR</a></td>
+                            <td><a href="/album/edt/<%=album.id%>" class="link">EDITAR</a></td>
                         </tr>
                         <%})%>
 

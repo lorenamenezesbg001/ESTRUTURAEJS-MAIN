@@ -2,6 +2,7 @@ import express from "express";
 import Genero from './models/Genero.js';
 import Musica from './models/Musica.js';
 import Artista from './models/Artista.js';
+import Album from './models/Album.js';
 
 const app = express();
 const PORT = 3000;
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
 
 //Rotas do gênero
 
-app.get("/genero/lst", async (req, res) => {
+app.get("/genero", async (req, res) => {
   const generos = await Genero.find()
   res.render("genero/lst", {generos});
 });
@@ -34,6 +35,14 @@ app.get("/genero/add",  (req, res) => {
   res.render("genero/add");
 });
 
+//Excluir
+
+app.get('/genero/del/:id', async (req, res) => {
+   const genero = await Genero.findByIdAndDelete(req.params.id)
+   res.redirect("/genero")
+
+});
+
 app.post("/genero/add", async (req, res) => {
   const nome = req.body.nome;
   //grava no banco de dados(Mongo)
@@ -41,9 +50,27 @@ app.post("/genero/add", async (req, res) => {
   res.render("genero/addok");
 });
 
+//Edição
+
+app.get('/genero/edt/:id', async (req, res) => {
+
+const genero = await Genero.findById(req.params.id)
+
+res.render("genero/edt", {genero})
+
+});
+
+app.post('/genero/edt/:id', async (req, res) => {
+
+const genero = await Genero.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("genero/edtok")
+
+});
+
 //Rotas de música
 
-app.get("/musica/lst", async (req, res) => {
+app.get("/musica", async (req, res) => {
   const musicas = await Musica.find()
   res.render("musica/lst", {musicas});
 });
@@ -52,7 +79,7 @@ app.get("/musica/lst", async (req, res) => {
 
 app.get('/musica/del/:id', async (req, res) => {
    const musica = await Musica.findByIdAndDelete(req.params.id)
-   res.redirect("/musica/lst")
+   res.redirect("/musica")
 
 });
 
@@ -61,14 +88,34 @@ app.get("/musica/add", (req, res) => {
 });
 
 app.post("/musica/add", async (req, res) => {
-  const {nome, duracao, artista, anoLancamento} = req.body;
-  await Musica.create({nome, duracao, artista, anoLancamento})
+  const nome = req.body.nome;
+  const duracao = req.body.duracao;
+  const artista = req.body.artista;
+  const anoLancamento = req.body.anoLancamento;
+  //grava no banco de dados(Mongo)
+  await Musica.create({nome, duracao, artista, anoLancamento});
   res.render("musica/addok");
+});
+
+app.get('/musica/edt/:id', async (req, res) => {
+
+const musica = await Musica.findById(req.params.id)
+
+res.render("musica/edt", {musica})
+
+}); 
+
+app.post('/musica/edt/:id', async (req, res) => {
+
+const musica = await Musica.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("musica/edtok")
+
 });
 
 //Rotas do artista
 
-app.get("/artista/lst", async (req, res) => {
+app.get("/artista", async (req, res) => {
   const artistas = await Artista.find()
   res.render("artista/lst", {artistas});
 });
@@ -77,7 +124,7 @@ app.get("/artista/lst", async (req, res) => {
 
 app.get('/artista/del/:id', async (req, res) => {
    const artista = await Artista.findByIdAndDelete(req.params.id)
-   res.redirect("/artista/lst")
+   res.redirect("/artista")
 
 });
 
@@ -88,9 +135,72 @@ app.get("/artista/add",  (req, res) => {
 
 app.post("/artista/add", async (req, res) => {
   const nome = req.body.nome;
+  const pais = req.body.pais;
+  const ano = req.body.ano;
   //grava no banco de dados(Mongo)
-  await Artista.create({nome});
+  await Artista.create({nome, pais, ano});
   res.render("artista/addok");
+});
+
+app.get('/artista/edt/:id', async (req, res) => {
+
+const artista = await Artista.findById(req.params.id)
+
+res.render("artista/edt", {artista})
+
+});
+
+app.post('/artista/edt/:id', async (req, res) => {
+
+const artista = await Artista.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("artista/edtok")
+
+});
+
+//Rotas do álbum
+
+app.get("/album", async (req, res) => {
+  const albuns = await Album.find()
+  res.render("album/lst", {albuns});
+});
+
+//Excluir
+
+app.get('/album/del/:id', async (req, res) => {
+   const album = await Album.findByIdAndDelete(req.params.id)
+   res.redirect("/album")
+
+});
+
+app.get("/album/add",  (req, res) => {
+
+  res.render("album/add");
+});
+
+app.post("/album/add", async (req, res) => {
+  const nome = req.body.nome;
+  const ano = req.body.ano;
+  const genero = req.body.genero;
+  //grava no banco de dados(Mongo)
+  await Album.create({nome, ano, genero});
+  res.render("album/addok");
+});
+
+app.get('/album/edt/:id', async (req, res) => {
+
+const album = await Album.findById(req.params.id)
+
+res.render("album/edt", {album})
+
+});
+
+app.post('/album/edt/:id', async (req, res) => {
+
+const album = await Album.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("album/edtok")
+
 });
 
 app.get("/cadastro", (req, res) => {
